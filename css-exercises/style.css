@@ -1,0 +1,51 @@
+  
+  .ex2-odd {
+    background-color: pink;
+    font-family: Verdana, "DejaVu Sans", sans-serif;
+  }
+
+  #ex2-row2 {
+    color: blue;
+    font-size: 36px;
+  }
+
+  .ex2-fontsize {
+    font-size: 24px;
+  }
+
+  #ex2-row4 {
+    background-color: rgb(159, 233, 157);
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .ex3-button1, .ex3-button2 {
+    font-size: 28px;
+    font-family: Helvetica, "Times New Roman", sans-serif;
+  }
+
+  .ex3-button1 {
+    background-color: black;
+    color: white;
+  }
+
+  .ex3-button2 {
+    background-color: yellow;
+  }
+
+  .ex4-avatar.proportioned {
+    width: 300px;
+    height: auto;
+  }
+
+  .ex4-avatar.distorted {
+    width: 200px;
+    height: 400px;
+  }
+
+  .ex5-container .text {
+    background-color: yellow;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+  }
