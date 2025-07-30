@@ -153,6 +153,7 @@ body {
     font-weight: 300;
     color: #1F2937;
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .quote-section cite {
