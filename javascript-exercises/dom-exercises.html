@@ -1,0 +1,38 @@
+<!-- https://www.theodinproject.com/lessons/foundations-dom-manipulation-and-events#exercise -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h1>THE TITLE OF YOUR WEBPAGE</h1>
+    <div id="container"></div>
+    <!--<script src="test.js"></script>-->
+    <script>
+        const container = document.getElementById("container");
+        const one = document.createElement("div");
+        one.textContent = "Hey I'm red!";
+        one.style.color = "red";
+        container.appendChild(one);
+
+        const two = document.createElement("h3");
+        two.textContent = "Hey I'm blue!";
+        two.style.color = "blue";
+        container.appendChild(two);
+
+        const pinkBox = document.createElement("div");
+        pinkBox.style.backgroundColor = "pink";
+        pinkBox.style.border = "black 1px solid";
+        const heading = document.createElement("h1");
+        heading.textContent = "I'm in a div!";
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "ME TOO!";
+        pinkBox.append(heading, paragraph);
+        container.appendChild(pinkBox);
+    </script>
+    <p><a href="https://www.theodinproject.com/lessons/foundations-dom-manipulation-and-events#exercise">assignment</a></p>
+</body>
+</html>

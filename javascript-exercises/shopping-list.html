@@ -1,0 +1,77 @@
+<!-- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting#creating_a_dynamic_shopping_list -->
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <br><br><br>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting#creating_a_dynamic_shopping_list">assignment</a></p>
+
+    <script>
+      // Step 2
+      const list = document.querySelector("ul");
+      const inputItem = document.querySelector("input");
+      const addButton = document.querySelector("button");
+
+      // Step 3
+      addButton.addEventListener("click", function() {
+        // Step 4
+        const inputVal = inputItem.value;
+        // Step 5
+        inputItem.value = "";
+
+        // Step 6
+        const listItem = document.createElement("li");
+        const listSpan = document.createElement("span");
+        const listRemoveButton = document.createElement("button");
+
+        // Step 7
+        listItem.appendChild(listSpan);
+        listItem.appendChild(listRemoveButton);
+
+        // Step 8
+        listSpan.textContent = inputVal;
+        listRemoveButton.textContent = "Delete";
+
+        // Step 9
+        list.appendChild(listItem);
+
+        // Step 10
+        listRemoveButton.addEventListener("click", function() {
+          list.removeChild(listItem);
+          inputItem.focus();
+        });
+
+        // Step 11
+        inputItem.focus();
+      });
+    </script>
+  </body>
+</html>

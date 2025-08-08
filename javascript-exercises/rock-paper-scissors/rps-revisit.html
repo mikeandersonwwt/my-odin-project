@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scisors Revisit</title>
+    <link rel="icon" href="data:,">
+    <style>
+        body {
+            background-color: rgb(21, 21, 72);
+        }
+        #buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding-top: 20px;
+        }
+
+        button {
+            width: 150px;
+            height: 150px;
+        }
+
+        #results {
+            color: white;
+            text-align: center;
+            white-space: pre-line;
+        }
+
+    </style>
+</head>
+<body>
+    <a style="color: white;"href="https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors#assignment">assignment</a>
+    <div><h1 style="text-align: center; color: white;">Pick one</h1></div>
+
+    <div id="buttons">
+        <button style="font-size: 5rem;" id="rock">🪨</button>
+        <button style="font-size: 5rem;" id="paper">📄</button>
+        <button style="font-size: 5rem;" id="scissors">✂️</button>
+    </div>
+
+    <div id="score" style="color: white; text-align: center; font-size: 30px; padding: 20px;">
+        Player: <span id="player-score">0</span> --- Computer: <span id="computer-score">0</span>
+    </div>
+
+    <div><h1 id="results"></h1></div>
+
+    <script src="rps-revisit.js"></script>
+</body>
+</html>
