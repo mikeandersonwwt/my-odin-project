@@ -1,5 +1,5 @@
 // Filter range
-console.log("******** FILTER RANG ********");
+console.log("******** FILTER RANGE ********");
 const arr1 = [27, 93, 14, 62, 86, 5, 41, 70, 99, 18, 35, 24, 58, 3, 76, 12, 88, 45, 67, 81];
 
 function filterRange(arr1, a, b){ 
