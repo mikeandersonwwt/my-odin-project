@@ -29,10 +29,12 @@ const operatorButtons = document.querySelectorAll('.operatorButton');
 const clearButton = document.getElementById('clearButton');
 const equalButton = document.getElementById('equalButton');
 
-
 // Add numbers to display
 let currentNumber = 0;
 function addToDisplay() {
+    if (this.textContent === '.' && display.textContent.includes('.')) {
+        return; // Exit on second decimal
+    }
     if (justCalculated) {
         display.textContent = this.textContent;
         justCalculated = false;
@@ -45,7 +47,6 @@ function addToDisplay() {
         display.textContent += this.textContent;
     }
     currentNumber = Number(display.textContent);
-    // this.blur(); // removes focus if using both mouse/keys
 }
 
 // Handle operator button clicks
@@ -172,7 +173,4 @@ document.addEventListener('keydown', function (e) {
             decimalButton.click();
         }
     }
-    // if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
-    //     document.activeElement.blur();
-    // }
 });
