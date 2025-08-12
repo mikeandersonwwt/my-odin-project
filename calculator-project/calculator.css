@@ -2,29 +2,43 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 #container {
-    margin: 10px;
-    padding: 5px;
+    margin: 20px;
+    padding-bottom: 10px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 260px;
-    height: 315px;
+    width: 250px;
+    height: 320px;
     background-color: rgb(164, 163, 163);
 
 }
 
-/* #row1, #row2, #row3, #row4 {
-    display: flex;
-    flex-direction: row;
-} */
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    width: 220px;
+    height: 250px;
+}
+
+
+button:focus {
+    outline: none;
+}
+
+
+#row1, #row2, #row3, #row4, #row5 {
+    display: contents;
+}
+
 
 .btn {
     font-size: 20px;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
     border-radius: 8px;
     border: 1px solid black;
 }
@@ -34,18 +48,24 @@ body {
     font-weight: bold;
     color: white;
     background-color: red;
+    grid-row: span 2;
 }
+
 
 .operatorButton {
     font-weight: bold;
     color: white;
     background-color: orange;
 }
+
+
 #equalButton {
     font-weight: bold;
     color: white;
     background-color: green;
+    grid-row: span 2;
 }
+
 
 #display {
     display: flex;
@@ -60,4 +80,3 @@ body {
     font-size: 24px;
     padding-right: 5px;
 }
-

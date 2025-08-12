@@ -29,7 +29,9 @@ const operatorButtons = document.querySelectorAll('.operatorButton');
 const clearButton = document.getElementById('clearButton');
 const equalButton = document.getElementById('equalButton');
 
-// Add number to display
+
+// Add numbers to display
+let currentNumber = 0;
 function addToDisplay() {
     if (justCalculated) {
         display.textContent = this.textContent;
@@ -42,6 +44,8 @@ function addToDisplay() {
     } else {
         display.textContent += this.textContent;
     }
+    currentNumber = Number(display.textContent);
+    // this.blur(); // removes focus if using both mouse/keys
 }
 
 // Handle operator button clicks
@@ -89,20 +93,33 @@ function clearDisplay() {
 }
 
 
+// Handle back button
+function handleBack() {
+    if (justCalculated) {
+        return; // don't allow backspace after equal
+    }
+    display.textContent = display.textContent.slice(0, -1);
+}
+
 // Perform the calculation
 function operate(a, b, operation) {
     switch(operation) {
         case 'add':
-            return add(a, b);
+            result = add(a, b);
+            break;
         case 'subtract':
-            return subtract(a, b);
+            result = subtract(a, b);
+            break;
         case 'multiply':
-            return multiply(a, b);
+            result = multiply(a, b);
+            break;
         case 'divide':
-            return divide(a, b);
+            result = divide(a, b);
+            break;
         default:
             return b;
     }
+    return Math.round(result * 1000000000000) / 1000000000000;
 }
 
 // Event listeners
@@ -110,3 +127,52 @@ numButtons.forEach(button => button.addEventListener('click', addToDisplay));
 operatorButtons.forEach(button => button.addEventListener('click', handleOperator));
 clearButton.addEventListener('click', clearDisplay);
 equalButton.addEventListener('click', handleEquals);
+backButton.addEventListener('click', handleBack);
+
+document.addEventListener('keydown', function (e) {
+    // Numbers 0-9
+    if (e.key >= '0' && e.key <= '9') {
+        const numberButton = Array.from(numButtons).find(btn => btn.textContent === e.key);
+        if (numberButton) {
+            numberButton.click();
+        }
+    }
+    // Operators
+    else if (e.key === '+') {
+        document.getElementById('add').click();
+    }
+    else if (e.key === '-') {
+        document.getElementById('subtract').click();
+    }
+    else if (e.key === '*') {
+        document.getElementById('multiply').click();
+    }
+    else if (e.key === '/') {
+        e.preventDefault(); // Prevent browser search
+        document.getElementById('divide').click();
+    }
+    // Equals
+    else if (e.key === 'Enter' || e.key === '=') {
+        e.preventDefault();
+        equalButton.click();
+    }
+    // Clear
+    else if (e.key === 'Escape' || e.key.toLowerCase() === 'c') {
+        clearButton.click();
+    }
+    // Backspace
+    else if (e.key === 'Backspace') {
+        e.preventDefault();
+        handleBack();
+    }
+    // Decimal point
+    else if (e.key === '.') {
+        const decimalButton = Array.from(numButtons).find(btn => btn.textContent === '.');
+        if (decimalButton) {
+            decimalButton.click();
+        }
+    }
+    // if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
+    //     document.activeElement.blur();
+    // }
+});
